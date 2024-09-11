@@ -61,12 +61,12 @@ class PeminjamanController extends Controller
             // Apply 20% discount
             $discount = 0.20;
             $totalPrice *= (1 - $discount);
-            $discountMessage = 'Diskon 20% telah diterapkan. Total harga: Rp ' . number_format($totalPrice, 0, ',', '.');
+            $discountMessage = 'Diskon 20% telah diterapkan. Total transaksi: Rp ' . number_format($totalPrice, 0, ',', '.');
         } else {
-            $discountMessage = 'Tidak ada diskon yang diterapkan. Total harga: Rp ' . number_format($totalPrice, 0, ',', '.');
+            $discountMessage = 'Tidak ada diskon yang diterapkan. Total transaksi: Rp ' . number_format($totalPrice, 0, ',', '.');
         }
 
-        return redirect()->route('peminjaman.create')->with('success', $discountMessage);
+        return redirect()->route('dashboard')->with('success', $discountMessage);
     }
 }
 

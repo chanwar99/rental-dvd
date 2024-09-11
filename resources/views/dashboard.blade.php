@@ -17,7 +17,6 @@
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
 
-
             {{-- Setup data for datatables --}}
             @php
                 $heads = [
