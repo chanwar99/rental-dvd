@@ -60,6 +60,8 @@
                         ['extend' => 'excel', 'text' => 'Export to Excel'],
                         ['extend' => 'pdf', 'text' => 'Export to PDF'],
                     ],
+                    'searching' => false, // Disable search
+                    'lengthChange' => false, // Disable show entries
                 ];
             @endphp
 
@@ -67,6 +69,37 @@
             <x-adminlte-datatable id="peminjaman-table" :heads="$heads" head-theme="dark" :config="$config" striped
                 hoverable bordered compressed with-buttons />
 
+        </div>
+    </div>
+    {{-- Tabel kedua: Daftar Genre --}}
+    <div class="card mt-4">
+        <div class="card-header">
+            <h3 class="card-title">Daftar jumlah Genre dalam Peminjaman</h3>
+        </div>
+        <div class="card-body">
+            {{-- Setup data for datatables --}}
+            @php
+                $genreHeads = ['Genre', 'Jumlah'];
+
+                $genreConfig = [
+                    'data' => $genreCounts->map(function ($genreCount) {
+                        return [$genreCount->genre, $genreCount->total];
+                    }),
+                    'order' => [[1, 'desc']],
+                    'columns' => [null, null],
+                    'dom' => 'Bfrtip', // Add export buttons
+                    'buttons' => [
+                        ['extend' => 'excel', 'text' => 'Export to Excel'],
+                        ['extend' => 'pdf', 'text' => 'Export to PDF'],
+                    ],
+                    'searching' => false, // Disable search
+                    'lengthChange' => false, // Disable show entries
+                ];
+            @endphp
+
+            {{-- DataTable Component --}}
+            <x-adminlte-datatable id="genre-table" :heads="$genreHeads" head-theme="dark" :config="$genreConfig" striped hoverable
+                bordered compressed with-buttons />
         </div>
     </div>
 @endsection

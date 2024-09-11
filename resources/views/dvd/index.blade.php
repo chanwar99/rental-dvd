@@ -72,6 +72,8 @@
                     }),
                     'order' => [[1, 'asc']],
                     'columns' => [null, null, null, null, null, null, null, null, ['orderable' => false]],
+                    'searching' => false, // Disable search
+                    'lengthChange' => false, // Disable show entries
                 ];
             @endphp
 

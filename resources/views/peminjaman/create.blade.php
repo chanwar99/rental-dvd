@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Tambah Peminjaman</h3>
+            <h3 class="card-title">Buat Peminjaman</h3>
         </div>
         <div class="card-body">
             <form method="POST" action="{{ route('peminjaman.store') }}">
@@ -20,6 +20,7 @@
                         <div class="form-group col-md-3">
                             <label for="kode">Kode DVD</label>
                             <select name="peminjaman[0][kode]" class="form-control" required>
+                                <option value=""></option>
                                 @foreach ($dvds as $dvd)
                                     <option value="{{ $dvd->kode }}">{{ $dvd->judul }} ({{ $dvd->kode }})</option>
                                 @endforeach
